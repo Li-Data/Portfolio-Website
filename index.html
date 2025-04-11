@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lilato Lisulo Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes progressBar {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+      .animate-fadeIn {
+        animation: fadeIn 1s ease-out;
+      }
+      .animate-progressBar {
+        animation: progressBar 1.5s ease-out;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
+    <nav class="fixed w-full z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center space-x-8">
+            <a href="index.html" class="font-bold text-lg">Lilato</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="certifications.html">Certifications</a>
+            <a href="resume.html">Resume</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="contacts.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-24">
+      <section id="home" class="min-h-screen flex flex-col items-center justify-center px-4">
+        <div class="text-center max-w-4xl mx-auto animate-fadeIn">
+          <div class="mb-8">
+            <img src="assets/professional.jpg" alt="Lilato" class="w-48 h-48 rounded-full mx-auto mb-6 shadow-lg" />
+          </div>
+          <h1 class="text-4xl md:text-6xl font-bold mb-6">
+            Hi, I'm <span class="text-blue-600">Lilato</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
+            A data-driven problem solver turning numbers into narratives
+          </p>
+          <div class="h-16 flex items-center justify-center">
+            <p class="text-lg md:text-xl animate-fadeIn" id="factText">Avid Book reader</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold mb-12 text-center">Skills & Expertise</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-2">
+              <div class="flex justify-between"><span>Power BI</span><span>90%</span></div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-600 rounded-full animate-progressBar" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex justify-between"><span>Python</span><span>85%</span></div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-600 rounded-full animate-progressBar" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex justify-between"><span>SQL</span><span>80%</span></div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-600 rounded-full animate-progressBar" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex justify-between"><span>Excel</span><span>95%</span></div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-600 rounded-full animate-progressBar" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex justify-between"><span>SPSS</span><span>82%</span></div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-600 rounded-full animate-progressBar" style="width: 82%"></div>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex justify-between"><span>STATA</span><span>75%</span></div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-600 rounded-full animate-progressBar" style="width: 75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="toolkit" class="py-16 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold mb-12 text-center">My Toolkit</h2>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+            <div class="text-center transform hover:scale-110 transition-transform">
+              <i class="fas fa-chart-bar text-4xl mb-4 text-blue-600"></i>
+              <p>Power BI</p>
+            </div>
+            <div class="text-center transform hover:scale-110 transition-transform">
+                <i class="fas fa-python text-4xl mb-4 text-blue-600"></i>
+              <p>Python</p>
+            </div>
+            <div class="text-center transform hover:scale-110 transition-transform">
+              <i class="fas fa-database text-4xl mb-4 text-blue-600"></i>
+              <p>SQL</p>
+            </div>
+            <div class="text-center transform hover:scale-110 transition-transform">
+              <i class="fas fa-table text-4xl mb-4 text-blue-600"></i>
+              <p>Excel</p>
+            </div>
+            <div class="text-center transform hover:scale-110 transition-transform">
+              <i class="fas fa-chart-line text-4xl mb-4 text-blue-600"></i>
+              <p>SPSS</p>
+            </div>
+            <div class="text-center transform hover:scale-110 transition-transform">
+              <i class="fas fa-chart-pie text-4xl mb-4 text-blue-600"></i>
+              <p>STATA</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const facts = [
+        "Very competitive during game nights😅",
+        "Built dashboards for multinational companies",
+        "Coffee connoisseur ☕",
+        "Data-driven problem solver",
+        "Avid Book Reader",
+        "My favorite music genre is what most would call 'Oonts Oonts music'😂"
+      ];
+      let currentFact = 0;
+      setInterval(() => {
+        currentFact = (currentFact + 1) % facts.length;
+        document.getElementById("factText").textContent = facts[currentFact];
+      }, 4500);
+    </script>
+  </body>
+</html>

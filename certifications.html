@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certifications - Lilato Lisulo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fadeIn {
+        animation: fadeIn 0.5s ease-out;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
+    <nav class="fixed w-full z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="index.html" class="font-bold text-lg">Lilato</a>
+          <a href="/portfolio.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Portfolio</a>
+            <a href="/certifications.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Certifications</a>
+            <a href="/resume.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Resume</a>
+            <a href="/testimonials.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Testimonials</a>
+            <a href="/contacts.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-24 px-4 max-w-7xl mx-auto">
+      <h1 class="text-4xl font-bold mb-8">Lilato</h1>
+      <div id="cert-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </main>
+
+    <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div class="bg-white dark:bg-gray-800 rounded-lg max-w-2xl w-full animate-fadeIn">
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-4">
+            <h2 id="modalTitle" class="text-2xl font-bold"></h2>
+            <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+              <i class="fas fa-times text-xl"></i>
+            </button>
+          </div>
+          <div class="flex justify-center mb-6">
+            <img id="modalBadge" src="" alt="Certification Badge" class="w-48 h-48 object-contain" />
+          </div>
+          <p id="modalDesc" class="text-gray-600 dark:text-gray-300 mb-6"></p>
+          <div class="flex flex-wrap gap-4">
+            <a id="modalVerify" href="#" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors">
+              <i class="fas fa-check-circle mr-2"></i>
+              Verify Certificate
+            </a>
+            <a id="modalDownload" href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+              <i class="fas fa-download mr-2"></i>
+              Download
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const certifications = [
+        {
+          id: 1,
+          title: "Managing Big Data with MySQL",
+          issuer: "Duke University",
+          date: "09/2024",
+          badge: "assets/Duke.png",
+          description: "Certification in data modeling, indexing, and optimization using MySQL for large datasets",
+          verificationUrl: "https://www.coursera.org/account/accomplishments/verify/O2KL5G7YBVGC",
+          downloadUrl: "/certificates/aws-cert.pdf",
+          skills: ["Aggregations & GROUP BY", "Joins", "Writing complex SQL queries"]
+        },
+        {
+          id: 4,
+          title: "Power BI Data Analyst Associate",
+          issuer: "Microsoft",
+          date: "08/2024",
+          badge: "assets/microsoft.jpg",
+          description: "Certification in data modeling, visualization, and DAX using Power BI",
+          verificationUrl: "https://learn.microsoft.com/api/credentials/share/en-us/LilatoLisulo-5792/47668D38648F28D5?sharingId",
+          downloadUrl: "/certificates/powerbi-cert.pdf",
+          skills: ["Power BI", "Data Modeling", "DAX"]
+        },
+        {
+          id: 2,
+          title: "Data Science Math Skills",
+          issuer: "Duke University",
+          date: "01/2024",
+          badge: "assets/Duke.png",
+          description: "Certification in foundational statistics, probability, and linear algebra for data science",
+          verificationUrl: "https://www.coursera.org/account/accomplishments/records/7FKLVTLGF78T",
+          downloadUrl: "/certificates/react-cert.pdf",
+          skills: ["Descriptive Statistics", "Data Cleaning", "Predictive Modeling"]
+        },
+        {
+          id: 3,
+          title: "Introduction to Statistics",
+          issuer: "Stanford University",
+          date: "05/2024",
+          badge: "assets/stanford.jpg",
+          description: "Certification in descriptive statistics, probability, and data distributions",
+          verificationUrl: "https://coursera.org/share/fbae2846d7a51ad80a6a9fa5d3682172",
+          downloadUrl: "/certificates/mongodb-cert.pdf",
+          skills: ["Data Interpretation", "Probability Theory", "Regression Analysis"]
+        },
+        {
+          id: 5,
+          title: "Python for Data Science, AI & Development",
+          issuer: "IBM",
+          date: "02/2024",
+          badge: "assets/ibm.png",
+          description: "Certificate in data science fundamentals using Python",
+          verificationUrl: "https://www.coursera.org/account/accomplishments/records/V5BYEPC29QJV",
+          downloadUrl: "/certificates/ibm-python-cert.pdf",
+          skills: ["Data Structures", "Data Analysis", "Pandas"]
+        },
+        {
+          id: 6,
+          title: "Excel Skills for Business",
+          issuer: "Macquarie University",
+          date: "06/2024",
+          badge: "assets/macquarie.png",
+          description: "Excel proficiency for data analysis and business reporting",
+          verificationUrl: "https://www.coursera.org/account/accomplishments/records/GLS75EKE5AUP",
+          downloadUrl: "/certificates/excel-cert.pdf",
+          skills: ["Index-Match", "Formulas", "Data Cleaning"]
+        },
+        {
+          id: 7,
+          title: "Russian - Intermediate Level",
+          issuer: "Russian House (Lusaka)",
+          date: "07/2023",
+          badge: "assets/russian.jpeg",
+          description: "Certificate in Russian Language – foundational grammar, vocabulary, and conversational skills",
+          verificationUrl: "https://zambia.rs.gov.ru/en/about-russian-house/",
+          downloadUrl: "/certificates/spss-cert.pdf",
+          skills: ["Reading", "Vocabulary Development", "Listening Comprehension"]
+        }
+      ];
+
+      const certGrid = document.getElementById("cert-grid");
+
+      certifications.forEach(cert => {
+        const card = document.createElement("div");
+        card.className = "bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer animate-fadeIn";
+        card.onclick = () => openModal(cert);
+
+        card.innerHTML = `
+          <div class="p-6">
+            <div class="flex justify-center mb-6">
+              <img src="${cert.badge}" alt="${cert.title} Badge" class="w-32 h-32 object-contain" />
+            </div>
+            <h3 class="text-xl font-bold mb-2">${cert.title}</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Issued by ${cert.issuer} • ${cert.date}</p>
+            <div class="flex flex-wrap gap-2">
+              ${cert.skills.map(skill => `<span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">${skill}</span>`).join("")}
+            </div>
+          </div>
+        `;
+        certGrid.appendChild(card);
+      });
+
+      function openModal(cert) {
+        document.getElementById("modal").classList.remove("hidden");
+        document.getElementById("modalTitle").textContent = cert.title;
+        document.getElementById("modalBadge").src = cert.badge;
+        document.getElementById("modalBadge").alt = `${cert.title} Badge`;
+        document.getElementById("modalDesc").textContent = cert.description;
+        document.getElementById("modalVerify").href = cert.verificationUrl;
+        document.getElementById("modalDownload").href = cert.downloadUrl;
+      }
+
+      function closeModal() {
+        document.getElementById("modal").classList.add("hidden");
+      }
+    </script>
+  </body>
+</html>
