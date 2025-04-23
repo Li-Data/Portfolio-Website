@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -166,3 +167,173 @@
     </script>
   </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testimonials - Lilato Lisulo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes pulse {
+        0% { transform: scale(1); opacity: 0.2; }
+        50% { transform: scale(1.05); opacity: 0.3; }
+        100% { transform: scale(1); opacity: 0.2; }
+      }
+      .animate-fadeIn { animation: fadeIn 0.5s ease-out; }
+      .animate-pulse { animation: pulse 2s infinite; }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
+    <nav class="fixed w-full z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="index.html" class="font-bold text-lg">Lilato</a>
+            <a href="/portfolio.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Portfolio</a>
+            <a href="/certifications.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Certifications</a>
+            <a href="/resume.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Resume</a>
+            <a href="/testimonials.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Testimonials</a>
+            <a href="/contacts.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+          <button id="themeToggle" class="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+            <i class="fas fa-moon" id="themeIcon"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-24 px-4 max-w-6xl mx-auto">
+      <h1 class="text-4xl font-bold mb-12 text-center">Testimonials</h1>
+
+      <div class="relative overflow-hidden">
+        <div id="testimonialSlider" class="flex transition-transform duration-500 ease-in-out">
+          <!-- Testimonials injected here -->
+        </div>
+
+        <button onclick="prevTestimonial()" class="absolute left-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white dark:bg-gray-800 rounded-full p-4 shadow-lg hover:scale-110 transition-transform">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <button onclick="nextTestimonial()" class="absolute right-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white dark:bg-gray-800 rounded-full p-4 shadow-lg hover:scale-110 transition-transform">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="flex justify-center mt-8 gap-2" id="testimonialDots"></div>
+    </main>
+
+    <script>
+      const testimonials = [
+        {
+          name: "Noah Mwansa",
+          role: "Finance Director at Emirates (East Africa)",
+          image: "assets/noah.jpeg",
+          quote: "Lilato is someone I’ve watched grow professionally and personally over the years. His attention to detail, analytical thinking, and reliability make him an asset in any setting. He doesn’t just complete tasks, he enhances the way teams think about data and decisions."
+        },
+        {
+          name: "Charles Chansa",
+          role: "Management Consultant at Bain & Co",
+          image: "assets/charles.jpeg",
+          quote: "Lilato is exceptionally sharp and grounded. He’s always had the rare ability to connect big-picture thinking with meticulous execution. He approaches every challenge with a learner’s mindset and has an innate drive to improve"
+        },
+        {
+          name: "Emmanuel Hansingo",
+          role: "Senior Data Analyst Co-ordinator at FSI Outsourcing",
+          image: "assets/emmanuel.jpeg",
+          quote: "Since joining FSI, Lilato has exceeded expectations. He’s quick to learn new systems, delivers under pressure, and brings structure and creativity to the analytics process. Clients love his reports, and internally he’s respected for his calm, solution-oriented approach"
+        },
+        {
+          name: "Darren Spratt",
+          role: "Consultant at ContinuiTECH",
+          image: "/testimonials/david.jpg",
+          quote: "Lilato goes above and beyond. He’s innovative, reliable, and always finds smarter ways to get things done."
+        },
+        {
+          name: "Phatiswayo Chabwera",
+          role: "Marketing Executive at Yango",
+          image: "assets/phatiswayo.jpeg",
+          quote: "Lilato stands out for his professional demeanor, positive energy, and the way he effortlessly connects with others. Even without working directly with him, it's clear he's a team player and a strong presence."
+        },
+        {
+          name:  "Walker Skaar",
+          role: "Head of Capital Markets at Nectar",
+          image: "assets/walker.jpeg",
+          quote: "Lilato stands out for his eagerness to learn and his proactive approach to work. He’s not only dedicated and reliable but also brings a positive energy that uplifts those around him."
+        },
+        {
+          name: "Obbie Kalenga",
+          role: "BI Analyst at FNB",
+          image: "assets/obbie.jpeg",
+          quote: "Working with Lilato has been a great experience. He explains complex concepts in a way that’s easy to understand and is always open to collaboration. I genuinely look forward to any project we get to work on together."
+        }
+      ];
+
+      let currentTestimonial = 0;
+      const slider = document.getElementById("testimonialSlider");
+      const dots = document.getElementById("testimonialDots");
+
+      function renderTestimonials() {
+        slider.innerHTML = "";
+        dots.innerHTML = "";
+
+        testimonials.forEach((t, index) => {
+          slider.innerHTML += `
+            <div class="w-full flex-shrink-0 px-4">
+              <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 md:p-12 animate-fadeIn">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                  <div class="w-32 h-32 md:w-48 md:h-48 relative">
+                    <div class="absolute inset-0 bg-blue-600 dark:bg-blue-400 rounded-full opacity-20 animate-pulse"></div>
+                    <img src="${t.image}" alt="${t.name}" class="w-full h-full object-cover rounded-full relative z-10" />
+                  </div>
+                  <div class="flex-1 text-center md:text-left">
+                    <p class="text-xl md:text-2xl italic mb-6">"${t.quote}"</p>
+                    <h3 class="text-xl font-bold">${t.name}</h3>
+                    <p class="text-blue-600 dark:text-blue-400">${t.role}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          dots.innerHTML += `
+            <button onclick="goToTestimonial(${index})"
+              class="w-3 h-3 rounded-full transition-colors ${currentTestimonial === index ? 'bg-blue-600 dark:bg-blue-400' : 'bg-gray-300 dark:bg-gray-700'}">
+            </button>
+          `;
+        });
+
+        slider.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+      }
+
+      function nextTestimonial() {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        renderTestimonials();
+      }
+
+      function prevTestimonial() {
+        currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+        renderTestimonials();
+      }
+
+      function goToTestimonial(index) {
+        currentTestimonial = index;
+        renderTestimonials();
+      }
+
+      setInterval(nextTestimonial, 10000);
+      renderTestimonials();
+
+      document.getElementById("themeToggle").addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        const icon = document.getElementById("themeIcon");
+        icon.classList.toggle("fa-sun");
+        icon.classList.toggle("fa-moon");
+      });
+    </script>
+  </body>
+</html>
+>>>>>>> 39a09be (First upload)
