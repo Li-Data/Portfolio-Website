@@ -65,7 +65,7 @@
       </div>
     </div>
 
-    <script>
+    <script type="module">
       const projects = [
         {
           id: 1,
@@ -103,7 +103,7 @@
           title: "Zambia Football Association Championship",
           description: "Web-hosted Excel dashboard for a football tournament, providing real-time tracking of player and team stats for performance analysis.",
           image: "assets/ZFAC.png",
-          type: "Excel","Web-Hosting",
+          type: ["Excel","Web-Hosting"],
           tools: ["Power Query", "One Drive", "Conditional Formatting"],
           longDescription: "This data analytics project involved creating a real-time dashboard to display key football statistics for an official tournament. The solution enabled live tracking and visualization of player and team performance metrics, providing stakeholders with up-to-date insights for decision-making and analysis.",
           link: "https://zambiachampionship.com/fixtures/"
@@ -112,9 +112,9 @@
 
       const filters = [
         { id: "all", label: "All Projects" },
-        { id: "frontend", label: "Power BI" },
-        { id: "backend", label: "Excel" },
-        { id: "fullstack", label: "Web-Hosting" }
+        { id: "Power BI", label: "Power BI" },
+        { id: "Excel", label: "Excel" },
+        { id: "Web-Hosting", label: "Web-Hosting" }
       ];
 
       const filterButtons = document.getElementById("filterButtons");
@@ -149,7 +149,12 @@
         const filtered =
           activeFilter === "all"
             ? projects
-            : projects.filter((p) => p.type === activeFilter);
+            : projects.filter((p) =>
+  Array.isArray(p.type)
+    ? p.type.includes(activeFilter)
+    : p.type === activeFilter
+)
+
         projectGrid.innerHTML = "";
         filtered.forEach((project) => {
           const card = document.createElement("div");
