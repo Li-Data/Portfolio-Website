@@ -55,12 +55,7 @@
           <img id="modalImage" class="w-full h-64 object-cover rounded-lg mb-4" />
           <p id="modalDescription" class="mb-4"></p>
           <div id="modalTools" class="flex flex-wrap gap-2 mb-4"></div>
-          <a
-            id="modalLink"
-            href="#"
-            target="_blank"
-            class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
-          >View Project</a>
+          <div id="modalLink" class="flex gap-4"></div>
         </div>
       </div>
     </div>
@@ -80,11 +75,11 @@
         {
           id: 2,
           title: "Power BI Dashboard",
-          description: "Power BI dashboard pitch tracking USAID facilitators' attendance, compliance, and productivity in real time.",
-          image: "assets/usa.png",
+          description: "Power BI dashboard tracking USAID facilitators' attendance, compliance, and productivity in real time.",
+          image: "assets/USAID.png",
           type: "Power BI",
           tools: ["DAX", "Data Modeling", "Calculated Columns"],
-          longDescription: "This project features a snapshot of a dashboard to pitch tracking of clock-in data for USAID facilitators in Zambia. Using Power BI, the dashboard would provide real-time insights into attendance patterns, shift compliance, and facilitator productivity, helping ensure efficient workforce management and accurate reporting.",
+          longDescription: "This project features an interactive dashboard to track clock-in data for USAID facilitators in Zambia. Using Power BI, the dashboard provides real-time insights into attendance patterns, shift compliance, and facilitator productivity, helping ensure efficient workforce management and accurate reporting.",
           link: "https://github.com/Li-Data/Li-Data/blob/main/image%20(1).png"
         },
          {
@@ -106,7 +101,8 @@
           type: ["Excel","Web-Hosting"],
           tools: ["Power Query", "One Drive", "Conditional Formatting"],
           longDescription: "This data analytics project involved creating a real-time dashboard to display key football statistics for an official tournament. The solution enabled live tracking and visualization of player and team performance metrics, providing stakeholders with up-to-date insights for decision-making and analysis.",
-          link: "https://zambiachampionship.com/fixtures/"
+          link: "https://zambiachampionship.com/fixtures/",
+          codeLink: "https://github.com/Li-Data/Li-Data/blob/main/ZFAC.xlsx"
         }
       ];
 
@@ -160,7 +156,7 @@
           const card = document.createElement("div");
           card.className =
             "bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer";
-          card.innerHTML = `
+            card.innerHTML = `
             <img src="${project.image}" alt="${project.title}" class="w-full h-auto object-contain mx-auto" />
 
             <div class="p-6">
@@ -181,8 +177,14 @@
         modalImage.src = project.image;
         modalImage.alt = project.title;
         modalDescription.textContent = project.longDescription;
-        modalLink.href = project.link;
         modalTools.innerHTML = project.tools.map(tool => `<span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">${tool}</span>`).join(" ");
+        const buttons = `
+  <a href="${project.link}" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">View Project</a>
+  ${project.codeLink ? `
+    <a href="${project.codeLink}" target="_blank" class="inline-block border border-blue-600 text-blue-600 px-6 py-2 rounded-full hover:bg-blue-50 transition">View Code</a>
+  ` : ""}
+`;
+modalLink.innerHTML = buttons;
         projectModal.classList.remove("hidden");
       }
 
