@@ -33,17 +33,23 @@
   <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
     <nav class="fixed w-full z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between flex-wrap md:flex-nowrap gap-3 md:gap-8">
-
+        <div class="flex items-center justify-between py-4">
           <a href="index.html" class="font-bold text-lg">Lilato</a>
-            <a href="/portfolio.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400"">Portfolio</a>
-            <a href="/certifications.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400"">Certifications</a>
-            <a href="/resume.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400"">Resume</a>
-            <a href="/testimonials.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400"">Testimonials</a>
-            <a href="/contacts.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400"">Contact</a>
-          <button id="themeToggle" class="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
-            <i class="fas fa-moon" id="themeIcon"></i>
-          </button>
+          <div class="flex items-center">
+            <button id="menuToggle" class="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+            <button id="themeToggle" class="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 ml-2">
+              <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
+          </div>
+          <div id="navMenu" class="hidden md:flex md:items-center md:gap-8 w-full md:w-auto flex-col md:flex-row mt-4 md:mt-0">
+            <a href="/portfolio.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400 py-2 md:py-0">Portfolio</a>
+            <a href="/certifications.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400 py-2 md:py-0">Certifications</a>
+            <a href="/resume.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400 py-2 md:py-0">Resume</a>
+            <a href="/testimonials.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400 py-2 md:py-0">Testimonials</a>
+            <a href="/contacts.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400 py-2 md:py-0">Contact</a>
+          </div>
         </div>
       </div>
     </nav>
@@ -95,6 +101,9 @@
         icon.classList.toggle("fa-moon");
         icon.classList.toggle("fa-sun");
       };
+      document.getElementById("menuToggle").onclick = () => {
+        const navMenu = document.getElementById("navMenu");
+        navMenu.classList.toggle("hidden");
     </script>
     <script>
   const profileImages = [
