@@ -17,47 +17,39 @@
       }
       .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
       .floating-logo {
-  animation: float 4s ease-in-out infinite;
-  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
-  opacity: 0.2;
-  filter: grayscale(100%) brightness(0.8);
-}
-.floating-logo:hover {
-  transform: scale(1.2);
-  opacity: 1;
-  filter: grayscale(0%) brightness(1.1);
-}
-
+        animation: float 4s ease-in-out infinite;
+        transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+        opacity: 0.2;
+        filter: grayscale(100%) brightness(0.8);
+      }
+      .floating-logo:hover {
+        transform: scale(1.2);
+        opacity: 1;
+        filter: grayscale(0%) brightness(1.1);
+      }
     </style>
   </head>
   <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
     <nav class="fixed w-full z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between py-4">
+        <div class="flex items-center justify-between flex-wrap py-4 gap-4 md:gap-8">
           <a href="index.html" class="font-bold text-lg">Lilato</a>
-          <div class="flex items-center">
-            <button id="menuToggle" class="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
-              <i class="fas fa-bars text-xl"></i>
-            </button>
-            <button id="themeToggle" class="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 ml-2">
-              <i class="fas fa-moon" id="themeIcon"></i>
-            </button>
-          </div>
-          <div id="navMenu" class="hidden md:flex md:items-center md:gap-8 w-full md:w-auto flex-col md:flex-row mt-4 md:mt-0">
-            <a href="/portfolio.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400 py-2 md:py-0">Portfolio</a>
-            <a href="/certifications.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400 py-2 md:py-0">Certifications</a>
-            <a href="/resume.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400 py-2 md:py-0">Resume</a>
-            <a href="/testimonials.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400 py-2 md:py-0">Testimonials</a>
-            <a href="/contacts.html" class="text-sm md:text-base font-inter hover:text-blue-600 dark:hover:text-blue-400 py-2 md:py-0">Contact</a>
-          </div>
+          <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 md:flex-nowrap md:gap-8 text-sm md:text-base font-inter">
+            <a href="/portfolio.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">Portfolio</a>
+            <a href="/certifications.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">Certifications</a>
+            <a href="/resume.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">Resume</a>
+            <a href="/testimonials.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">Testimonials</a>
+            <a href="/contacts.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">Contact</a>
+          </                  <button id="themeToggle" class="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+            <i class="fas fa-moon" id="themeIcon"></i>
+          </button>
         </div>
       </div>
     </nav>
 
     <main class="pt-28 px-4 max-w-4xl mx-auto pb-16">
       <section id="home" class="py-16 px-4 text-center max-w-4xl mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-6rem)] animate-fadeInUp">
-<img id="profileImage" alt="Lilato" class="w-36 h-36 rounded-full mb-6 shadow-md transform hover:scale-105 transition-transform duration-500" />
-
+        <img id="profileImage" alt="Lilato" class="w-36 h-36 rounded-full mb-6 shadow-md transform hover:scale-105 transition-transform duration-500" />
         <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-blue-600">Lilato Lisulo</span></h1>
         <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 max-w-2xl">Capital Markets Analyst & Data Storyteller passionate about solving real-world problems using analytics, code, and clarity.</p>
         <p id="factText" class="text-blue-500 text-sm"></p>
@@ -65,18 +57,17 @@
           <a href="/portfolio.html" class="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300">View My Work</a>
           <a href="/contacts.html" class="px-6 py-3 border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition duration-300">Contact Me</a>
         </div>
-
         <!-- Decorative floating logos -->
         <div class="absolute inset-0 z-0">
-            <img src="assets/microsoft.png" alt="Microsoft" class="floating-logo w-10 absolute top-20 left-4" />
-            <img src="assets/aws.png" alt="AWS" class="floating-logo w-10 absolute top-32 right-4" />
-            <img src="assets/digitalocean.png" alt="Digital Ocean" class="floating-logo w-12 absolute top-10 left-[45%]" />
-            <img src="assets/python.png" alt="Python" class="floating-logo w-10 absolute bottom-36 left-6" />
-            <img src="assets/sql.png" alt="SQL" class="floating-logo w-14 absolute bottom-12 right-6" />
-            <img src="assets/powerbi.jpeg" alt="Power BI" class="floating-logo w-10 absolute top-1/6 right-10" />
-            <img src="assets/html.png" alt="html" class="floating-logo w-10 absolute bottom-24 left-[30%]" />
-            <img src="assets/js.png" alt="Javascript" class="floating-logo w-10 absolute bottom-12 right-[30%]" />
-          </div>
+          <img src="assets/microsoft.png" alt="Microsoft" class="floating-logo w-10 absolute top-20 left-4" />
+          <img src="assets/aws.png" alt="AWS" class="floating-logo w-10 absolute top-32 right-4" />
+          <img src="assets/digitalocean.png" alt="Digital Ocean" class="floating-logo w-12 absolute top-10 left-[45%]" />
+          <img src="assets/python.png" alt="Python" class="floating-logo w-10 absolute bottom-36 left-6" />
+          <img src="assets/sql.png" alt="SQL" class="floating-logo w-14 absolute bottom-12 right-6" />
+          <img src="assets/powerbi.jpeg" alt="Power BI" class="floating-logo w-10 absolute top-1/6 right-10" />
+          <img src="assets/html.png" alt="html" class="floating-logo w-10 absolute bottom-24 left-[30%]" />
+          <img src="assets/js.png" alt="Javascript" class="floating-logo w-10 absolute bottom-12 right-[30%]" />
+        </div>
       </section>
     </main>
 
@@ -101,17 +92,13 @@
         icon.classList.toggle("fa-moon");
         icon.classList.toggle("fa-sun");
       };
-      document.getElementById("menuToggle").onclick = () => {
-        const navMenu = document.getElementById("navMenu");
-        navMenu.classList.toggle("hidden");
+
+      const profileImages = [
+        "assets/lii.png",
+        "assets/professional.jpg"
+      ];
+      const chosenImage = profileImages[Math.floor(Math.random() * profileImages.length)];
+      document.getElementById("profileImage").src = chosenImage;
     </script>
-    <script>
-  const profileImages = [
-    "assets/lii.png",
-    "assets/professional.jpg"
-  ];
-  const chosenImage = profileImages[Math.floor(Math.random() * profileImages.length)];
-  document.getElementById("profileImage").src = chosenImage;
-</script>
   </body>
 </html>
