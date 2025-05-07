@@ -187,23 +187,7 @@
               ${cert.skills.map(skill => `<span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">${skill}</span>`).join("")}
             </div>
           </div>
-        `;
-        certifications.forEach(cert => {
-        const card = document.createElement("div");
-        card.className = "bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer animate-fadeIn";
-        card.onclick = () => openModal(cert);
-
-        card.innerHTML = `
-          <div class="p-6">
-            <div class="flex justify-center mb-6">
-              <img src="${cert.badge}" alt="${cert.title} Badge" class="w-32 h-32 object-contain" />
-            </div>
-            <h3 class="text-xl font-bold mb-2">${cert.title}</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">Issued by ${cert.issuer} • ${cert.date}</p>
-            <div class="flex flex-wrap gap-2">
-              ${cert.skills.map(skill => `<span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">${skill}</span>`).join("")}
-            </div>
-          </div>
+        
         `;
         certGrid.appendChild(card);
       });
