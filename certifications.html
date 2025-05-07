@@ -21,16 +21,36 @@
     <nav class="fixed w-full z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between flex-wrap md:flex-nowrap gap-3 md:gap-8">
-
+          <!-- Logo -->
           <a href="index.html" class="font-bold text-lg">Lilato</a>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex flex-grow justify-center space-x-40">
             <a href="/portfolio.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Portfolio</a>
             <a href="/certifications.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Certifications</a>
             <a href="/resume.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Resume</a>
             <a href="/testimonials.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Testimonials</a>
             <a href="/contacts.html" class="font-inter hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
-          <button id="themeToggle" class="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
-            <i class="fas fa-moon" id="themeIcon"></i>
-          </button>
+          </div>
+
+          <!-- Theme Toggle for Desktop -->
+          <div class="hidden md:block ml-auto">
+            <button id="themeToggle" class="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+              <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu" class="hidden md:hidden mt-2 space-y-2">
+          <a href="/portfolio.html" class="block px-4 py-2 font-inter hover:text-blue-600 dark:hover:text-blue-400">Portfolio</a>
+          <a href="/certifications.html" class="block px-4 py-2 font-inter hover:text-blue-600 dark:hover:text-blue-400">Certifications</a>
+          <a href="/resume.html" class="block px-4 py-2 font-inter hover:text-blue-600 dark:hover:text-blue-400">Resume</a>
+          <a href="/testimonials.html" class="block px-4 py-2 font-inter hover:text-blue-600 dark:hover:text-blue-400">Testimonials</a>
+          <a href="/contacts.html" class="block px-4 py-2 font-inter hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
         </div>
       </div>
     </nav>
@@ -152,6 +172,23 @@
       const certGrid = document.getElementById("cert-grid");
 
       certifications.forEach(cert => {
+        const card = document.createElement("div");
+        card.className = "bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer animate-fadeIn";
+        card.onclick = () => openModal(cert);
+
+        card.innerHTML = `
+          <div class="p-6">
+            <div class="flex justify-center mb-6">
+              <img src="${cert.badge}" alt="${cert.title} Badge" class="w-32 h-32 object-contain" />
+            </div>
+            <h3 class="text-xl font-bold mb-2">${cert.title}</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Issued by ${cert.issuer} • ${cert.date}</p>
+            <div class="flex flex-wrap gap-2">
+              ${cert.skills.map(skill => `<span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">${skill}</span>`).join("")}
+            </div>
+          </div>
+        `;
+        certifications.forEach(cert => {
         const card = document.createElement("div");
         card.className = "bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer animate-fadeIn";
         card.onclick = () => openModal(cert);
