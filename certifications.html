@@ -46,7 +46,7 @@
   <button id="menuToggle" class="text-gray-700 dark:text-white focus:outline-none">
     <i class="fas fa-bars fa-lg"></i>
   </button>
-</div>2
+</div>
 
         <!-- Mobile Dropdown Menu -->
         <div id="mobileMenu" class="hidden md:hidden mt-2 space-y-2">
@@ -210,5 +210,21 @@
         document.getElementById("modal").classList.add("hidden");
       }
     </script>
+<script>
+  document.getElementById("menuToggle").onclick = () => {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("hidden");
+  };
+
+  document.getElementById("themeToggle").onclick = () => {
+    document.body.classList.toggle("dark");
+    const icon = document.getElementById("themeIcon");
+    icon.classList.toggle("fa-moon");
+    icon.classList.toggle("fa-sun");
+  };
+</script>
+</body>
+</html>
+
   </body>
 </html>
