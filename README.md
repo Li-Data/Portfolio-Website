@@ -14,7 +14,7 @@ This site showcases my projects, certifications, resume, testimonials, and conta
 - **JavaScript** (Vanilla)
 - **FontAwesome** (Icons)
 - **Fully Responsive Design**
-- **Deployed on**: GitHub Pages / DigitalOcean / Netlify (adjust as needed)
+- **Deployed on**: GitHub Pages
 
 ---
 
@@ -25,7 +25,7 @@ This site showcases my projects, certifications, resume, testimonials, and conta
 - 📂 Project filters & modal popups
 - 🧾 Certifications with badge view & download
 - 📄 Resume timeline with company logos
-- 🗣️ Testimonials slideshow with auto-rotation
+- 🗣️ Testimonials cards with pop-up features
 - 📬 Contact form with validation and location map
 
 ---
