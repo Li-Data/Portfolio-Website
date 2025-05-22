@@ -10,41 +10,50 @@
 
   gtag('config', 'G-C4TZYLVRSR');
 </script>
-     <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resume - Lilato Lisulo</title>
-  <link rel="icon" type="image/png" href="assets/Lilato.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fadeIn { animation: fadeIn 0.5s ease-out; }
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 4px;
-      height: 0;
-      background-color: #2563eb;
-      transition: height 0.6s ease-out;
-    }
-    .dark .timeline::before { background-color: #60a5fa; }
-    .timeline.visible::before { height: 100%; }
-    .timeline { position: relative; padding-left: 1.5rem; opacity: 0; transition: opacity 0.5s ease-in; }
-    .timeline.visible { opacity: 1; }
-    .logo-top-right {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume - Lilato Lisulo</title>
+    <link rel="icon" type="image/png" href="assets/Lilato.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+   <style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 0;
+    background-color: #2563eb;
+    transition: height 0.6s ease-out;
+  }
+  .dark .timeline::before {
+    background-color: #60a5fa;
+  }
+  .timeline.visible::before {
+    height: 100%;
+  }
+  .timeline {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .logo-top-right {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+</style>
 
   </head>
   <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
@@ -183,50 +192,52 @@
     </div>
     
 <script>
-    function openResumeForm() {
-      document.getElementById("resumeFormModal").classList.remove("hidden");
-    }
-    function closeResumeForm() {
-      document.getElementById("resumeFormModal").classList.add("hidden");
-    }
-    function showSuccessMessage(event) {
-      event.preventDefault();
-      const form = document.getElementById("resumeForm");
-      const formData = new FormData(form);
-      fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" }
-      })
-      .then(response => {
-        if (response.ok) {
-          form.classList.add("hidden");
-          document.getElementById("formSuccessMessage").classList.remove("hidden");
-        } else {
-          alert("There was an issue submitting the form. Please try again.");
+  function openResumeForm() {
+    document.getElementById("resumeFormModal").classList.remove("hidden");
+  }
+
+  function closeResumeForm() {
+    document.getElementById("resumeFormModal").classList.add("hidden");
+  }
+
+  function showSuccessMessage(event) {
+    event.preventDefault();
+
+    const form = document.getElementById("resumeForm");
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" }
+    })
+    .then(response => {
+      if (response.ok) {
+        form.classList.add("hidden");
+        document.getElementById("formSuccessMessage").classList.remove("hidden");
+      } else {
+        alert("There was an issue submitting the form. Please try again.");
+      }
+    })
+    .catch(error => {
+      console.error("Error submitting form:", error);
+      alert("Network error. Please try again.");
+    });
+  }
+
+  // Timeline animation logic
+  const timelineItems = document.querySelectorAll(".timeline");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
         }
-      })
-      .catch(error => {
-        console.error("Error submitting form:", error);
-        alert("Network error. Please try again.");
       });
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      const timelineItems = document.querySelectorAll(".timeline");
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.3,
-        rootMargin: "0px 0px -100px 0px"
-      });
-      timelineItems.forEach(item => observer.observe(item));
-
+    },
+    { threshold: 0.3 }
+  );
+  timelineItems.forEach(item => observer.observe(item));
 </script>
 
   </body>
