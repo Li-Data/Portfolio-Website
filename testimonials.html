@@ -22,14 +22,21 @@
     </script>
 
     <style>
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .fade-in-up {
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out forwards;
-      }
+     @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  .testimonial-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
     </style>
   </head>
 
