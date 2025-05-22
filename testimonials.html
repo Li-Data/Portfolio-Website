@@ -31,12 +31,15 @@
     animation: fadeInUp 0.8s ease-out forwards;
   }
   .testimonial-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .testimonial-card:hover {
-    transform: translateY(-0.5rem);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  }
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  cursor: pointer;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
     </style>
   </head>
 
@@ -165,19 +168,18 @@
       testimonials.forEach((t, i) => {
         const delay = i * 150;
         grid.innerHTML += `
-           <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center text-center gap-4 fade-in-up transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" style="animation-delay: ${delay}ms">
-
-            <div class="relative w-24 h-24">
-              <div class="absolute inset-0 bg-blue-600 dark:bg-blue-400 rounded-full opacity-20 animate-pulse"></div>
-              <img src="${t.image}" alt="${t.name}" class="w-full h-full object-cover rounded-full relative z-10" />
-            </div>
-            <p class="italic text-gray-700 dark:text-gray-300">"${t.quote}"</p>
-            <div>
-              <h3 class="font-bold text-lg">${t.name}</h3>
-              <p class="text-blue-600 dark:text-blue-400 text-sm">${t.role}</p>
-            </div>
-          </div>
-        `;
+  <div class="testimonial-card bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center text-center gap-4 animate-fadeIn" style="animation-delay: ${delay}ms">
+    <div class="relative w-24 h-24">
+      <div class="absolute inset-0 bg-blue-600 dark:bg-blue-400 rounded-full opacity-20 animate-pulse"></div>
+      <img src="${t.image}" alt="${t.name}" class="w-full h-full object-cover rounded-full relative z-10" />
+    </div>
+    <p class="italic text-gray-700 dark:text-gray-300">"${t.quote}"</p>
+    <div>
+      <h3 class="font-bold text-lg">${t.name}</h3>
+      <p class="text-blue-600 dark:text-blue-400 text-sm">${t.role}</p>
+    </div>
+  </div>
+`;
       });
 
       document.getElementById("themeToggle").onclick = () => {
