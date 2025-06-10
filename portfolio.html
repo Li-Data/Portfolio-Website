@@ -104,10 +104,9 @@
   description: "Analyzed British Airways customer data to predict booking completion using machine learning and data visualization.",
   image: "assets/ba_project.png",
   type: "Data Science",
-  tools: ["Python", "Scikit-learn", "Pandas", "Seaborn", "Power BI"],
+  tools: ["Python", "Scikit-learn", "Pandas", "Seaborn", "Matplotlib"],
   longDescription: "Built a machine learning model to predict booking completion for British Airways customers. Applied data cleaning, feature engineering, and Random Forest classification. Delivered visual insights using Seaborn and Matplotlib, and evaluated model performance with ROC curves and SHAP interpretability. This project highlights end-to-end data science processes and business impact delivery.",
-  link: "https://github.com/yourusername/british-airways-data-science", 
-  codeLink: "https://github.com/yourusername/british-airways-data-science"
+  link: "https://github.com/Li-Data/british-airways-data-science" 
 },
         {
           id: 5,
@@ -137,7 +136,7 @@
         { id: "all", label: "All Projects" },
         { id: "Power BI", label: "Power BI" },
         { id: "Excel", label: "Excel" },
-        { id: "Web-Hosting", label: "Web-Hosting" }
+        { id: "Web-Hosting", label: "Web-Hosting" },
         { id: "Data Science", label: "Data Science" }
       ];
 
@@ -222,7 +221,7 @@ modalLink.innerHTML = buttons;
 
       document.getElementById("themeToggle").onclick = () => {
         document.body.classList.toggle("dark");
-        const icon = document.querySelector("themeToggle i");
+        const icon = document.querySelector("#themeToggle i");
         icon.classList.toggle("fas fa-moon");
         icon.classList.toggle("fa-sun");
       };
